@@ -65,7 +65,7 @@ export default class EventsController {
 
     static async apiDeleteEvent(req, res, next) {
         try {
-            const eventId = req.query.id
+            const eventId = req.query._id
             const userId = req.body.user_id
             console.log(eventId)
 
@@ -74,7 +74,9 @@ export default class EventsController {
                 userId,
             )
 
-            res.json({ status: "success" })
+            //res.json({ status: "success" })
+            //res.json({eventId, userId}); 
+            res.json(EventResponse); 
         } catch (e) {
             res.status(500).json({ error: e.message })
         }

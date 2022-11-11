@@ -27,4 +27,20 @@ export default class UsersController {
         }
         res.json(response)
     }
+
+    static async apiPostUser(req, res, next) {
+        try {
+            const userHandle = req.body.handle
+            const username = req.body.name
+
+            const EventResponse = await UsersDAO.addUser(
+                userHandle, 
+                username,
+            )
+            //res.json({ status: "success" })
+            res.json(EventResponse)
+        } catch (e) {
+            res.status(500).json({ error: e.message })
+        }
+    }
 }

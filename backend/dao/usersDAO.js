@@ -39,4 +39,23 @@ export default class UsersDAO {
             return { usersList: [], totalNumUsers: 0 }
         }
     }
+
+    static async addUser(userHandle, username) {
+        try {
+            const userDoc = {
+                handle: userHandle, 
+                name: username, 
+                friends: [], 
+                groupNames: [], 
+                groupUsers: [[]]
+            }
+    
+            return await users.insertOne(userDoc)
+            //await events.insertOne(eventDoc)
+            //return "hmm yes this worked"
+        } catch (e) {
+            console.error(`Unable to create user: ${e}`)
+            return { error: e }
+        }
+    }
 }

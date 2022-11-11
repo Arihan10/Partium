@@ -6,7 +6,10 @@ import EventsCtrl from "./events.controller.js"
 
 const router = express.Router()
 
-router.route("/").get(UsersCtrl.apiGetUsers)
+router
+    .route("/")
+    .get(UsersCtrl.apiGetUsers)
+    .post(UsersCtrl.apiPostUser)
 
 router
     .route("/events")
