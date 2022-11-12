@@ -28,6 +28,23 @@ export default class UsersController {
         res.json(response)
     }
 
+    static async apiGetUserById(req, res, next) {
+        try {
+            let id = req.params.id || {}
+            let user = await UsersDAO.getUserById(id)
+
+            if (!user) {
+                res.status(404).json({ error: "Not found bro" })
+                return
+            }
+
+            res.json(user)
+        } catch(e) {
+            console.log(`api, ${e}`)
+            res.status(500).json({ error: e })
+        }
+    }
+
     static async apiPostUser(req, res, next) {
         try {
             const userHandle = req.body.handle

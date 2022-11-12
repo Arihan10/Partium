@@ -23,7 +23,8 @@ export default class EventsDAO {
                 eventTime: eventTime, 
                 userHandle: userInfo.handle, 
                 username: userInfo.name, 
-                user_id: userInfo._id, //change to MongoDB Id if needed - ObjectId(userInfo._id)
+                //user_id: userInfo._id, //change to MongoDB Id if needed - ObjectId(userInfo._id)
+                user_id: ObjectId(userInfo._id), //change to MongoDB Id if needed - ObjectId(userInfo._id)
                 date: date,
             }
     
@@ -63,7 +64,7 @@ export default class EventsDAO {
         try {
             const deleteResponse = await events.deleteOne({
                 _id: ObjectId(reviewId), 
-                user_id: userId
+                user_id: userId,
             })
 
             return deleteResponse

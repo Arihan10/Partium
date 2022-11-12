@@ -1,3 +1,6 @@
+import mongodb from "mongodb"
+const ObjectId = mongodb.ObjectId
+
 let users
 
 export default class UsersDAO {
@@ -56,6 +59,50 @@ export default class UsersDAO {
         } catch (e) {
             console.error(`Unable to create user: ${e}`)
             return { error: e }
+        }
+    }
+
+    static async getUserById(id) {
+        try {
+            const pipeline = [
+                {
+                    $match: {
+                        _id: new ObjectId(id)
+                    }, 
+                }, 
+                {
+                    $lookup: {
+                        from: "events", 
+                        let: {
+                            id: "$_id", 
+                        }, 
+                        pipeline: [
+                            {
+                                $match: {
+                                    $expr: {
+                                        $eq: ["$user_id", "$$id"], 
+                                    }, 
+                                }, 
+                            }, 
+                            {
+                                $sort: {
+                                    date: -1,
+                                },
+                            },
+                        ],
+                        as: "events", 
+                    }, 
+                }, 
+                {
+                    $addFields: {
+                        events: "$events", 
+                    }, 
+                }, 
+            ]
+            return await users.aggregate(pipeline).next()
+        } catch (e) {
+            console.error(`Something went wrong in getUserById: ${e}`)
+            throw e
         }
     }
 }

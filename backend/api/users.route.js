@@ -11,6 +11,8 @@ router
     .get(UsersCtrl.apiGetUsers)
     .post(UsersCtrl.apiPostUser)
 
+router.route("/id/:id").get(UsersCtrl.apiGetUserById)
+
 router
     .route("/events")
     .post(EventsCtrl.apiPostEvent)
