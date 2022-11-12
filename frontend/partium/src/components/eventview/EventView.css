@@ -1,0 +1,146 @@
+@import url("../Shadows.css");
+
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background: rgba(55, 55, 55, 0.7);
+    backdrop-filter: blur(1px);
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+.event-pane {
+    background-color: #e7e7e7;
+    z-index: 11;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 640px;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-elevation-high-dark);
+}
+
+.event-pane button
+{
+    font: inherit;
+    font-weight: 900;
+    font-size: 40px;
+
+    width: 200px;
+    height: 60px;
+
+    border: none;
+    border-radius: 8px;
+    background-color: hsl(0, 0%, 16%);
+    color: white;
+
+    transition: all 500ms ease-out;
+    box-shadow: var(--shadow-elevation-low);
+}
+
+.event-pane button:hover
+{
+    box-shadow: var(--shadow-elevation-medium-dark);
+    transform: translate(0px, -2px);
+}
+
+.header-pane
+{
+    display: flex;
+    background-color: #f6f6f6;
+    padding: 20px;
+    gap: 20px;
+}
+
+.header-pane h1
+{
+    display: inline;
+    font-size: 55px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    white-space: nowrap
+}
+
+.header-pane p
+{
+    display: inline;
+    font-size: 25px;
+    opacity: 0.8;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    align-self: center;
+    white-space: nowrap
+}
+
+.user-pane {
+
+    text-align: left;
+    border-radius: 8px;
+    border-color: black;
+    background-color: #fafafa;
+    box-shadow: var(--shadow-elevation-low);
+    
+    padding: 9px;
+    display: flex;
+    padding-right: 20px;
+    column-gap: 10px;
+
+    transition: all 300ms ease-out
+}
+
+.user-pane:hover {
+    background-color: #eeeeee;
+    box-shadow: var(--shadow-elevation-medium);
+    color: #3e3e3e;
+}
+
+.pfp
+{
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.pfp img
+{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.user-info
+{
+    flex-grow: 1;
+}
+.user-info h1
+{
+    font-weight: 700;
+    font-size:22px;
+    display: block;
+}
+.user-info p
+{
+    font-weight: 600;
+    font-size:10px;
+    opacity: 0.5;
+}
+
+.event-content
+{
+    padding: 20px;
+}
+.event-content p
+{
+    margin-top: 0px;
+    font-size: 20px;
+}

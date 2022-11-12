@@ -1,10 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+//import logo from './logo.svg';
+//import './App.css';
+import { useState } from 'react';
+import EventView from './components/eventview/EventView'
 
-function App() {
+/*
+function EventDisplay() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="EventView">
+      <header className="EventHeader">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -15,10 +18,28 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React (NO)
         </a>
       </header>
     </div>
+  );
+}
+*/
+
+function App()
+{
+  const [toggle, setToggle] = useState(true);
+
+  return (
+    <>
+      <button onClick={() =>setToggle(!toggle)} className="btn-modal"> Open </button>
+      { toggle &&
+        <>
+          <EventView />
+          <p> Test! </p>
+        </>
+      }
+    </>
   );
 }
 
