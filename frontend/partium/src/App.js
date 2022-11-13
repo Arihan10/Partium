@@ -11,7 +11,6 @@ function App() {
       {toggle &&
         <>
           <EventView toggle={toggle} setToggle={setToggle} />
-          <p> Test! </p>
         </>
       }
       <UserList />
