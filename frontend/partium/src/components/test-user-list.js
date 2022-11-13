@@ -31,7 +31,7 @@ const UserList = props => {
     }
 
     const find = (query, by) => {
-        UserDataService.getUser(query, by)
+        UserDataService.getUsersBy(query, by)
             .then(response => {
                 console.log(response.data); 
                 setUsers(response.data.users); 
