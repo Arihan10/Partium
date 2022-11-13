@@ -2,7 +2,6 @@ import "./EventView.css"
 import React, { useState } from "react";
 import { loremIpsum, name, surname, fullname, username } from 'react-lorem-ipsum';
 import dayjs from "dayjs";
-import { Check } from 'react-bootstrap-icons';
 
 var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
@@ -48,20 +47,22 @@ function EventContent()
     );
 }
 
-export default function EventView() {
+export default function EventView({state, setToggle}) {
     const [active, setActive] = useState(true)
 
-    if (active)
+    const close = () =>
     {
-        return (
-            <>
-                <div className="backdrop" onClick={() => { setActive(false) }}></div>
-                <div className="event-pane">
-                    <HeaderPane/>
-                    <EventContent/>
-                    <button>+</button>
-                </div>
-            </>
-        );
+        setToggle(false)
     }
+
+    return( //state === "exited" ? null :
+        <>
+            <div className="backdrop" onClick={() => { close() }}></div>
+            <div className="event-pane">
+                <HeaderPane/>
+                <EventContent/>
+                <button>+</button>
+            </div>
+        </>
+    );
 }
