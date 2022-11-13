@@ -12,7 +12,6 @@ function App() {
         <>
           <EventView toggle={toggle} setToggle={setToggle} />
           <p> Test! </p>
-          <UserList />
         </>
       }
       <UserList />
@@ -21,3 +20,4 @@ function App() {
 }
 
 export default App;
+
