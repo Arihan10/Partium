@@ -12,6 +12,7 @@ function App() {
         <>
           <EventView toggle={toggle} setToggle={setToggle} />
           <p> Test! </p>
+          <UserList />
         </>
       }
       <UserList />
