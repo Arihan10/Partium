@@ -47,7 +47,7 @@ function EventContent()
     );
 }
 
-export default function EventView({state, setToggle}) {
+export default function EventView({toggle, setToggle}) {
     const [active, setActive] = useState(true)
 
     const close = () =>
@@ -55,7 +55,8 @@ export default function EventView({state, setToggle}) {
         setToggle(false)
     }
 
-    return( //state === "exited" ? null :
+
+    return toggle ? (
         <>
             <div className="backdrop" onClick={() => { close() }}></div>
             <div className="event-pane">
@@ -64,5 +65,5 @@ export default function EventView({state, setToggle}) {
                 <button>+</button>
             </div>
         </>
-    );
+    ): null;
 }

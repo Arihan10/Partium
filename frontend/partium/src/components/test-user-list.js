@@ -47,7 +47,7 @@ const UserList = props => {
 
     return (
         <div className="App">
-            <input type = "text" placeholder="Search by name" value={onChangeSearchName} />
+            <input type = "text" placeholder="Search by name" value={searchName} onChange={onChangeSearchName} />
             <button type="button" onClick={findByName}>Find</button>
             <div>
                 {users.map((user) => {
@@ -65,3 +65,5 @@ const UserList = props => {
         </div>
     )
 }
+
+export default UserList; 
