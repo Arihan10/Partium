@@ -1,7 +1,7 @@
 /* https://www.joshwcomeau.com/shadow-palette/ */
 
 :root {
-    --shadow-color: 0deg 0% 59%;
+    --shadow-color: 230deg 20% 59%;
 
     --shadow-elevation-low:
         0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.69),
@@ -22,7 +22,7 @@
         16px 32px 26.8px -4.3px hsl(var(--shadow-color) / 0.17),
         25.3px 50.5px 42.4px -5px hsl(var(--shadow-color) / 0.08);
 
-    --shadow-color-dark: 0deg 0% 40%;
+    --shadow-color-dark: 230deg 10% 40%;
     --shadow-elevation-low-dark:
         0.3px 0.5px 0.4px hsl(var(--shadow-color-dark) / 0.69),
         0.3px 0.7px 0.6px -2.5px hsl(var(--shadow-color-dark) / 0.46),

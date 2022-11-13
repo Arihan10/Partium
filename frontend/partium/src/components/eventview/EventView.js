@@ -2,6 +2,8 @@ import "./EventView.css"
 import React, { useState } from "react";
 import { loremIpsum, name, surname, fullname, username } from 'react-lorem-ipsum';
 import dayjs from "dayjs";
+import { Check } from 'react-bootstrap-icons';
+
 var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
 
@@ -41,7 +43,7 @@ function EventContent()
 {
     return (
         <div className="event-content">
-            <p>{loremIpsum()}</p>
+            <p>{loremIpsum({p : 6})}</p>
         </div>
     );
 }
@@ -57,7 +59,7 @@ export default function EventView() {
                 <div className="event-pane">
                     <HeaderPane/>
                     <EventContent/>
-                    <button>RSVP</button>
+                    <button>+</button>
                 </div>
             </>
         );

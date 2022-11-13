@@ -1,30 +1,5 @@
-//import logo from './logo.svg';
-//import './App.css';
 import { useState } from 'react';
 import EventView from './components/eventview/EventView'
-
-/*
-function EventDisplay() {
-  return (
-    <div className="EventView">
-      <header className="EventHeader">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React (NO)
-        </a>
-      </header>
-    </div>
-  );
-}
-*/
 
 function App()
 {
@@ -32,11 +7,10 @@ function App()
 
   return (
     <>
-      <button onClick={() =>setToggle(!toggle)} className="btn-modal"> Open </button>
+      <button onClick={() => {setToggle(!toggle); console.log(toggle)}}>Open</button>
       { toggle &&
         <>
           <EventView />
-          <p> Test! </p>
         </>
       }
     </>
