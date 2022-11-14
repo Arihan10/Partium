@@ -43,25 +43,6 @@ export default class UsersDAO {
         }
     }
 
-    static async addUser(userHandle, username) {
-        try {
-            const userDoc = {
-                handle: userHandle, 
-                name: username, 
-                friends: [], 
-                groupNames: [], 
-                groupUsers: [[]]
-            }
-    
-            return await users.insertOne(userDoc)
-            //await events.insertOne(eventDoc)
-            //return "hmm yes this worked"
-        } catch (e) {
-            console.error(`Unable to create user: ${e}`)
-            return { error: e }
-        }
-    }
-
     static async getUserById(id) {
         try {
             const pipeline = [
@@ -103,6 +84,79 @@ export default class UsersDAO {
         } catch (e) {
             console.error(`Something went wrong in getUserById: ${e}`)
             throw e
+        }
+    }
+
+    static async getUserByHandle(handle) {
+        try {
+            const pipeline = [
+                {
+                    $match: {
+                        handle: handle
+                    }
+                }
+            ]
+
+            return await users.aggregate(pipeline).next(); 
+        } catch (e) {
+            console.error(`Something went wrong in getUserByHandle: ${e}`)
+            throw e
+        }
+    }
+
+    static async addUser(userHandle, username) {
+        try {
+            const userDoc = {
+                handle: userHandle, 
+                name: username, 
+                friends: [], 
+                friendRequests: [], 
+                groupNames: [], 
+                groupUsers: [[]]
+            }
+    
+            return await users.insertOne(userDoc)
+        } catch (e) {
+            console.error(`Unable to create user: ${e}`)
+            return { error: e }
+        }
+    }
+
+    static async sendFriendRequest(userHandle, friendHandle) {
+        try {
+            const updateResponse = await users.updateOne(
+                {
+                    handle: friendHandle,
+                }, 
+                { $push: {
+                    "friendRequests": userHandle,
+                }}
+            )
+
+            return updateResponse
+        } catch (e) {
+            console.error(`Unable to add friend requests: ${e}`)
+            return { error: e }
+        }
+    }
+
+    static async acceptFriendRequest(userHandle, friendHandle) {
+        try {
+            const updateResponse = await users.updateOne(
+                {
+                    handle: userHandle,
+                }, 
+                { $push: {
+                    "friends": friendHandle, //change to ID and centralize this thing
+                }, $pull: {
+                    "friendRequests": friendHandle,
+                }}
+            )
+
+            return updateResponse
+        } catch (e) {
+            console.error(`Unable to accept friend requests: ${e}`)
+            return { error: e }
         }
     }
 }

@@ -45,6 +45,23 @@ export default class UsersController {
         }
     }
 
+    static async apiGetUserByHandle(req, res, next) {
+        try {
+            let handle = req.params.handle || {}
+            let user = await UsersDAO.getUserById(handle)
+
+            if (!user) {
+                res.status(404).json({ error: "Not found bro" })
+                return
+            }
+
+            res.json(user)
+        } catch(e) {
+            console.log(`api, ${e}`)
+            res.status(500).json({ error: e })
+        }
+    }
+
     static async apiPostUser(req, res, next) {
         try {
             const userHandle = req.body.handle
@@ -52,9 +69,41 @@ export default class UsersController {
 
             const EventResponse = await UsersDAO.addUser(
                 userHandle, 
-                username,
+                username, 
             )
             //res.json({ status: "success" })
+            res.json(EventResponse)
+        } catch (e) {
+            res.status(500).json({ error: e.message })
+        }
+    }
+
+    static async apiSendFriendRequest(req, res, next) {
+        try {
+            const userHandle = req.body.userHandle
+            const friendHandle = req.body.friendHandle
+
+            const EventResponse = await UsersDAO.sendFriendRequest(
+                userHandle, 
+                friendHandle,
+            )
+
+            res.json(EventResponse)
+        } catch (e) {
+            res.status(500).json({ error: e.message })
+        }
+    }
+
+    static async apiAcceptFriendRequest(req, res, next) {
+        try {
+            const userHandle = req.body.userHandle
+            const friendHandle = req.body.friendHandle
+
+            const EventResponse = await UsersDAO.acceptFriendRequest(
+                userHandle, 
+                friendHandle,
+            )
+
             res.json(EventResponse)
         } catch (e) {
             res.status(500).json({ error: e.message })
