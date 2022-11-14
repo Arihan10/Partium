@@ -22,7 +22,7 @@ a:active {
 .event-pane {
     background-color: #e7e7e7;
     z-index: 11;
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     height: 660px;
@@ -155,28 +155,34 @@ a:active {
     background-color:#55f179;
 }
 
-.event-pane.tooltip {
-    position: absolute;
-    top: 0;
-    font-size: 14px;
-    background: #ffffff;
-    color: #ffffff;
-    padding: 5px 8px;
-    border-radius: 5px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+.transitiontest-enter
+{
     opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.event-pane.tooltip::before {
-    position: absolute;
-    content: "";
-    height: 8px;
-    width: 8px;
-    background: #ffffff;
-    bottom: -3px;
-    left: 50%;
-    transform: translate(-50%) rotate(45deg);
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.transitiontest-enter-active
+{
+    opacity: 1;
+    transition: opacity 300ms ease-out;
+}
+
+.transitiontest-enter-done
+{
+    opacity: 1;
+}
+
+.transitiontest-exit
+{
+    opacity: 1;
+}
+
+.transitiontest-exit-active
+{
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+}
+
+.transitiontest-exit-done
+{
+    opacity: 0;
 }

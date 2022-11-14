@@ -1,0 +1,16 @@
+.sidebar-item
+{
+    background-color: green;
+}
+
+.sidebar
+{
+    background-color: red;
+
+    display: flex;
+    margin-right: auto 0;
+
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+}

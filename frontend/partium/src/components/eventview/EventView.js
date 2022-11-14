@@ -56,7 +56,7 @@ export default function EventView({toggle, setToggle}) {
     }
 
 
-    return toggle ? (
+    return (
         <>
             <div className="backdrop" onClick={() => { close() }}></div>
             <div className="event-pane">
@@ -65,5 +65,5 @@ export default function EventView({toggle, setToggle}) {
                 <button>+</button>
             </div>
         </>
-    ): null;
+    )
 }

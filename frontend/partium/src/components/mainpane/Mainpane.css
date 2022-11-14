@@ -1,0 +1,9 @@
+.main-pane
+{
+    background-color: blue;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+
+    height: 100vh;
+}
