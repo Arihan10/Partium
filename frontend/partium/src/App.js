@@ -9,13 +9,13 @@ function App() {
 
   return (
     <>
-      <button onClick={() => {setToggle(!toggle)}}>Open</button>
       <MainPane/>
       <CSSTransition in={toggle} timeout={300} classNames="transitiontest" unmountOnExit mountOnEnter>
         <div>
           <EventView toggle={toggle} setToggle={setToggle} />
         </div>
       </CSSTransition>
+      <button onClick={() => {setToggle(!toggle)}}>Open</button>
     </>
   );
 }

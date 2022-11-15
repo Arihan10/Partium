@@ -1,10 +1,59 @@
+@import url("../Shadows.css");
+
+/*
+.sidebar
+{
+    text-align: left;
+
+    width: 14%;
+
+    display: flex;
+    margin-right: auto 0;
+    
+    background-color: #fafafa;
+    border-width: 20px;
+    border-color: black;
+
+    flex-direction: column;
+
+    padding: 9px;
+    padding-top: 10px;
+    gap: 10px;
+    column-gap: 10px;
+
+    transition: all 300ms ease-out
+}
+*/
+
 .sidebar-item
 {
-    background-color: green;
+    /*background-color: green;*/
+    display: flex;
+    flex-direction: column;
+    
+    padding: 20px;
+    gap: 20px;
+
+    transition: all 300ms ease-out;
+    scrollbar-width: 0px;
+
+    text-align: left;
+
+    background-color: #fafafa;
+    border-width: 20px;
+    border-color: black;
+    border-radius: 8px;
+}
+
+.sidebar-item:hover {
+    background-color: #eeeeee;
+    box-shadow: var(--shadow-elevation-medium);
+    color: #3e3e3e;
 }
 
 .sidebar
 {
+    /*
     background-color: red;
 
     display: flex;
@@ -12,5 +61,26 @@
 
     flex-direction: column;
     gap: 10px;
-    width: 200px;
+    /*width: 200px;*/
+
+    text-align: left;
+
+    width: 14%;
+
+    display: flex;
+    /*margin-right: auto 0;*/
+    
+    background-color: #fafafa;
+    border-width: 20px;
+    border-color: black;
+
+    /*flex: 0 1 auto;*/
+    flex-direction: column;
+
+    padding: 10px;
+    gap: 10px;
+}
+
+h1.appName {
+    padding-left: 16px;
 }

@@ -17,6 +17,14 @@ class UserDataService {
         return http.post("/", data); 
     }
 
+    sendFriendRequest(data) {
+        return http.put("/friendReq/send", data); 
+    }
+
+    acceptFriendRequest(data) {
+        return http.put("/friendReq/accept", data); 
+    }
+
     createEvent(data) {
         return http.post("/event", data); 
     }
