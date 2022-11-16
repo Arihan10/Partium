@@ -6,25 +6,22 @@ import './components/eventview/EventView.css'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Sidebar from './components/sidebar/Sidebar';
 import './components/sidebar/Sidebar.css'
+import UserFeed from './components/userfeed/UserFeed'
 
 function App() {
   const [toggle, setToggle] = useState(false);
 
   return (
     <>
+      <Sidebar/>
+
       <Router>
         <Routes>
           <Route path="/users" element={<MainPane />}/>
+          <Route path="/feed" element={<UserFeed />}/>
+          <Route path="/" element={<UserFeed />}/>
         </Routes>
       </Router>
-
-      <Sidebar/>
-      <CSSTransition in={toggle} timeout={300} classNames="transitiontest" unmountOnExit mountOnEnter>
-        <div>
-          <EventView toggle={toggle} setToggle={setToggle} />
-        </div>
-      </CSSTransition>
-      <button onClick={() => {setToggle(!toggle)}}>Open</button>
     </>
   );
 }
