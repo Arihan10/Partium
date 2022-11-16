@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
 import EventView from './components/eventview/EventView'
-import MainPane from './components/mainpane/Mainpane';
 import {CSSTransition} from 'react-transition-group'
 import './components/eventview/EventView.css'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
