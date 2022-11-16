@@ -48,7 +48,24 @@ export default class UsersController {
     static async apiGetUserByHandle(req, res, next) {
         try {
             let handle = req.params.handle || {}
-            let user = await UsersDAO.getUserById(handle)
+            let user = await UsersDAO.getUserEventsByHandle(handle)
+
+            if (!user) {
+                res.status(404).json({ error: "Not found bro" })
+                return
+            }
+
+            res.json(user)
+        } catch(e) {
+            console.log(`api, ${e}`)
+            res.status(500).json({ error: e })
+        }
+    }
+
+    static async apiGetUserEventsByHandle(req, res, next) {
+        try {
+            let handle = req.params.handle || {}
+            let user = await UsersDAO.getUserEventsByHandle(handle)
 
             if (!user) {
                 res.status(404).json({ error: "Not found bro" })

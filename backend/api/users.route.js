@@ -24,4 +24,6 @@ router
     .put(EventsCtrl.apiUpdateEvent)
     .delete(EventsCtrl.apiDeleteEvent)
 
+router.route("/events/:handle").get(UsersCtrl.apiGetUserEventsByHandle)
+
 export default router

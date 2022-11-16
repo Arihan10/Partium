@@ -85,7 +85,7 @@ export default class UsersDAO {
             ]
             return await users.aggregate(pipeline).next()
         } catch (e) {
-            console.error(`Something went wrong in getUserById: ${e}`)
+            console.error(`Something went wrong in getUserEventsByHandle: ${e}`)
             throw e
         }
     }
@@ -103,6 +103,50 @@ export default class UsersDAO {
             return await users.aggregate(pipeline).next(); 
         } catch (e) {
             console.error(`Something went wrong in getUserByHandle: ${e}`)
+            throw e
+        }
+    }
+
+    static async getUserEventsByHandle(handle) {
+        try {
+            const pipeline = [
+                {
+                    $match: {
+                        handle: handle
+                    }, 
+                }, 
+                {
+                    $lookup: {
+                        from: "events", 
+                        let: {
+                            user_handle: "$handle", 
+                        }, 
+                        pipeline: [
+                            {
+                                $match: {
+                                    $expr: {
+                                        $eq: ["$userHandle", "$$user_handle"], 
+                                    }, 
+                                }, 
+                            }, 
+                            {
+                                $sort: {
+                                    date: -1,
+                                },
+                            },
+                        ],
+                        as: "events", 
+                    }, 
+                }, 
+                {
+                    $addFields: {
+                        events: "$events", 
+                    }, 
+                }, 
+            ]
+            return await users.aggregate(pipeline).next()
+        } catch (e) {
+            console.error(`Something went wrong in getUserEventsByHandle: ${e}`)
             throw e
         }
     }
