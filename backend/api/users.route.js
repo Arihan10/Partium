@@ -16,6 +16,8 @@ router.route("/id/:id").get(UsersCtrl.apiGetUserById)
 router.route("/friendReq/send").put(UsersCtrl.apiSendFriendRequest)
 router.route("/friendReq/accept").put(UsersCtrl.apiAcceptFriendRequest)
 
+router.route("/login").post(UsersCtrl.apiVerifyPassword)
+
 router
     .route("/events")
     .post(EventsCtrl.apiPostEvent)

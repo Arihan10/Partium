@@ -1,5 +1,8 @@
 import mongodb from "mongodb"
+import bcrypt, { hash } from "bcrypt"
+
 const ObjectId = mongodb.ObjectId
+//const bcrypt = require("bcrypt")
 
 let users
 
@@ -104,11 +107,15 @@ export default class UsersDAO {
         }
     }
 
-    static async addUser(userHandle, username) {
+    static async addUser(userHandle, username, password) {
         try {
+            const salt = await bcrypt.genSalt(10)
+            const passHash = await bcrypt.hash(password, salt)
+
             const userDoc = {
                 handle: userHandle, 
                 name: username, 
+                passHash: passHash,
                 friends: [], 
                 friendRequests: [], 
                 groupNames: [], 
@@ -118,6 +125,22 @@ export default class UsersDAO {
             return await users.insertOne(userDoc)
         } catch (e) {
             console.error(`Unable to create user: ${e}`)
+            return { error: e }
+        }
+    }
+
+    static async verifyUserPassword(userHandle, password) {
+        try {
+            const data = await this.getUserByHandle(userHandle); 
+
+            const passHash = data.passHash
+
+            return await bcrypt.compare(password, passHash)
+
+            //return await bcrypt.compare(password, passHash)
+        } catch (e) {
+            //console.error(`Unable to verify user: ${e} + ${passHash} + ${password}`)
+            console.error(`Unable to verify user: ${e}`)
             return { error: e }
         }
     }

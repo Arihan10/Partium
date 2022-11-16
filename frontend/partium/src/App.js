@@ -5,7 +5,7 @@ import {CSSTransition} from 'react-transition-group'
 import './components/eventview/EventView.css'
 
 function App() {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   return (
     <>

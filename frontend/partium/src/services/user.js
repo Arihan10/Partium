@@ -17,6 +17,10 @@ class UserDataService {
         return http.post("/", data); 
     }
 
+    verifyUserPassword(data) {
+        return http.post("/login", data); 
+    }
+
     sendFriendRequest(data) {
         return http.put("/friendReq/send", data); 
     }

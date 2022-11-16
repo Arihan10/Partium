@@ -66,12 +66,30 @@ export default class UsersController {
         try {
             const userHandle = req.body.handle
             const username = req.body.name
+            const password = req.body.password
 
             const EventResponse = await UsersDAO.addUser(
                 userHandle, 
                 username, 
+                password,
             )
             //res.json({ status: "success" })
+            res.json(EventResponse)
+        } catch (e) {
+            res.status(500).json({ error: e.message })
+        }
+    }
+
+    static async apiVerifyPassword(req, res, next) {
+        try {
+            const userHandle = req.body.handle
+            const password = req.body.password
+
+            const EventResponse = await UsersDAO.verifyUserPassword(
+                userHandle, 
+                password, 
+            )
+
             res.json(EventResponse)
         } catch (e) {
             res.status(500).json({ error: e.message })
