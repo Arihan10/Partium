@@ -81,6 +81,12 @@
 
     padding: 10px;
     gap: 20px;
+
+    position: fixed;
+    top: 0;
+    height: 100vh;
+
+    border-right: 1px solid rgb(205, 205, 205);
 }
 
 h1.appName {

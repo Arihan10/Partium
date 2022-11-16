@@ -7,7 +7,6 @@ function MainPane()
     return (
         <div className="main-pane">
             <UserList/>
-            <Sidebar/>
         </div>
     );
 }
