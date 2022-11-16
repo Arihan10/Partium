@@ -1,9 +1,0 @@
-.main-pane
-{
-    background-color: rgb(53, 53, 53);
-    display: flex;
-    justify-content: flex-start;
-    position: relative;
-
-    height: 100vh;
-}

@@ -9,12 +9,13 @@ function UserFeed()
 
     return (
         <div className='main'>
+            <button onClick={() => {setToggle(!toggle)}} className="test-btn">Open</button>
+            
             <CSSTransition in={toggle} timeout={300} classNames="transitiontest" unmountOnExit mountOnEnter>
                 <div>
                     <EventView toggle={toggle} setToggle={setToggle} />
                 </div>
             </CSSTransition>
-            <button onClick={() => {setToggle(!toggle)}} className="test-btn">Open</button>
         </div>
     );
 }
