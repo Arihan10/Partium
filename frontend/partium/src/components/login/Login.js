@@ -23,6 +23,9 @@ function Login()
             .then(response => {
                 console.log(data); 
                 console.log(response.data); 
+
+                localStorage.setItem("userHandle", data.handle); 
+                console.log(localStorage.getItem("userHandle")); 
             })
             .catch(e => {
                 console.log(e);
