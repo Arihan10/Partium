@@ -2,16 +2,11 @@
 
 .user-list
 {
-    background-color: #f1f1f1;
     border-width: 20px;
     border-color: black;
 
     flex: 0 1 auto;
-    position: absolute;
-    left: 15.3%;
-    /*transform: translate(-25%);*/
 
-    width: 84.7%;
     /*max-width: 600px;*/
     height: 100vh;
     overflow:hidden;
@@ -19,18 +14,17 @@
     padding-top: 10px;
 }
 
-.user-list-pane {
-
+.user-list-pane
+{
     display: flex;
     flex-direction: column;
     
-    padding: 20px;
     gap: 20px;
+    margin:20px;
 
     transition: all 300ms ease-out;
     height: 100vh;
     overflow: scroll;
-    scrollbar-width: 0px;
 }
 
 .search-bar {
@@ -85,12 +79,13 @@
     background-color:#55f179;
 }
 
-button.friend {
-    margin-top: 10px;
-
+button.friend
+{
     font: inherit;
     font-weight: 600;
     font-size: 40px;
+
+    align-self: center;
     padding-bottom: 3px;
 
     width: 60px;
@@ -108,7 +103,9 @@ button.friend {
     background-color:#eeeeee;
 }
 
-button.friend:hover {
+
+button.friend:hover
+{
     box-shadow: var(--shadow-elevation-high-dark);
     transform: translate(0px, -2px);
 
@@ -118,7 +115,9 @@ button.friend:hover {
     color: white;
 }
 
-.pfp {
-    margin-top: 13px; 
-    margin-left: 5px;
+button.friend:active
+{
+    background-color:#55f179;
+    transform: translate(0px, 1px);
+    box-shadow: var(--shadow-elevation-high-dark);
 }

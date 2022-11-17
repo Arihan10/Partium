@@ -8,7 +8,7 @@ function UserFeed()
     const [toggle, setToggle] = useState(false);
 
     return (
-        <div className='main'>
+        <div>
             <button onClick={() => {setToggle(!toggle)}} className="test-btn">Open</button>
             
             <CSSTransition in={toggle} timeout={300} classNames="transitiontest" unmountOnExit mountOnEnter>
