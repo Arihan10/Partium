@@ -177,11 +177,11 @@ export default class UsersDAO {
         try {
             const data = await this.getUserByHandle(userHandle); 
 
+            if (!data) return null; 
+
             const passHash = data.passHash
 
             return await bcrypt.compare(password, passHash)
-
-            //return await bcrypt.compare(password, passHash)
         } catch (e) {
             //console.error(`Unable to verify user: ${e} + ${passHash} + ${password}`)
             console.error(`Unable to verify user: ${e}`)

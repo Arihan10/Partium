@@ -7,6 +7,7 @@ import { Search } from 'react-bootstrap-icons'
 function UserList() {
     const [users, setUsers] = useState([]);
     const [searchName, setSearchName] = useState("");
+    const [userHandle, setUserHandle] = useState(""); 
 
     useEffect(() => {
         retrieveUsers();
@@ -22,6 +23,10 @@ function UserList() {
             .then(response => {
                 console.log(response.data);
                 setUsers(response.data.users);
+
+                setUserHandle(localStorage.getItem("userHandle")); 
+                console.log(userHandle); 
+                console.log(localStorage.getItem("userHandle")); 
             })
             .catch(e => {
                 console.log(e);
@@ -70,7 +75,7 @@ function UserList() {
                     <img src="pfp.jpg"></img>
                 </div>
                 <div className="user-info">
-                    <h1>{name}</h1>
+                    <h1>{userHandle == handle ? name  + " - ME" : name}</h1>
                     <p>@{handle}</p>
                 </div>
                 <button className="friend" onClick={() => addFriend({
