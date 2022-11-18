@@ -2,9 +2,12 @@ import { useState, useRef } from 'react'
 import UserDataService from "../../services/user"
 import './Signup.css'
 import { Check, CheckCircleFill} from 'react-bootstrap-icons'
+import { useNavigate } from 'react-router-dom'
 
 function SignUp()
 {
+    const navigate = useNavigate(); 
+
     const [handle, setHandle] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState(""); 
@@ -26,6 +29,8 @@ function SignUp()
             .then(response => {
                 console.log(data); 
                 console.log(response.data); 
+
+                navigate("/login"); 
             })
             .catch(e => {
                 console.log(e);
@@ -45,6 +50,7 @@ function SignUp()
                         name: name, 
                         password: password
                     })}>Sign Up</button>
+                    <button onClick={() => navigate("/login")}>Login</button>
                 </div>
             </div>
         </div>

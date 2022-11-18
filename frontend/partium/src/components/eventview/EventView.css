@@ -72,7 +72,6 @@ a:active {
     background-color: #fafafa;
     box-shadow: var(--shadow-elevation-low);
 
-
     transition: all 300ms ease-out
 }
 

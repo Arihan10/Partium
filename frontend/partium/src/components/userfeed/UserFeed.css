@@ -1,19 +1,65 @@
 .feed
 {
+    justify-self: center;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
 
-    background-color: red;
+    width: clamp(650px, 50%, 900px);
+    padding-right: 30px;
+    overflow: scroll;
 }
 
 .feed-event
 {
-    border-top: 1px;
-    border-bottom: 1px;
+    background-color: #f4f4f4;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: var(--shadow-elevation-medium);
+}
+
+.event-desc-preview
+{
+    margin: 20px;
+    overflow: hidden;
+    display: grid;
+}
+
+.description
+{
+    grid-area: 1/1;
+    max-height: 250px;
+}
+
+.description p
+{
+    font-size: 1.2em;
+}
+
+.gradient-overlay
+{
+    width: 100%;
+    grid-area: 1/1;
+    height: 90px;
+    align-self:flex-end;
+    background: linear-gradient(to bottom, transparent, #f4f4f4) 
 }
 
 .poster-strip
 {
     display: flex;
+    flex-direction: row;
+
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+    margin: 10px;
+    column-gap: 10px;
+}
+
+.poster-strip h2
+{
+    margin-right: 40px;
+    text-align: right;
+    font-size: 2em;
 }

@@ -5,16 +5,24 @@ import {CSSTransition} from 'react-transition-group'
 import UserDataService from "../../services/user"
 import './UserFeed.css'
 
-function EventPost({user, pfp, title, description})
+function EventPost({username, handle, pfp, title, description})
 {
     return(
         <div className="feed-event">
             <div className="poster-strip">
-                <img src={pfp}/>
+                <img className="pfp" src={pfp}/>
+                <div className="user-info">
+                    <h1>{handle}</h1>
+                    <p>@{handle}</p>
+                </div>
+                <h2>{title}</h2>
             </div>
-
-            <h1>{title}</h1>
-            <p>{description}</p>
+            <div className="event-desc-preview">
+                <div className="description">
+                    <p>{description}</p>
+                </div>
+                <div className="gradient-overlay"></div>
+            </div>
         </div>
     );
 }
@@ -39,7 +47,10 @@ function UserFeed()
     return (
         <>
             <div className="feed">
-                <EventPost user={name()} pfp="pfp.jpg" title="Title" description={loremIpsum({p : 1})} />
+                <EventPost user={name()} handle={"handle"} pfp="pfp.jpg" title="Title" description={loremIpsum({p : 5})} />
+                <EventPost user={name()} handle={"handle"} pfp="pfp.jpg" title="Title" description={loremIpsum({p : 5})} />
+                <EventPost user={name()} handle={"handle"} pfp="pfp.jpg" title="Title" description={loremIpsum({p : 5})} />
+                <EventPost user={name()} handle={"handle"} pfp="pfp.jpg" title="Title" description={loremIpsum({p : 5})} />
             </div>
 
             <CSSTransition in={toggle} timeout={300} classNames="transitiontest" unmountOnExit mountOnEnter>

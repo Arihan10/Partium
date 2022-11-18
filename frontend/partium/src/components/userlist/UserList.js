@@ -71,9 +71,7 @@ function UserList() {
     function UserListPane({ pfp = "pfp.jpg", name, handle, friends, groups }) {
         return (
             <a className="user-pane">
-                <div className="pfp">
-                    <img src="pfp.jpg"></img>
-                </div>
+                <img className="pfp" src={pfp}/>
                 <div className="user-info">
                     <h1>{userHandle == handle ? name  + " - ME" : name}</h1>
                     <p>@{handle}</p>
