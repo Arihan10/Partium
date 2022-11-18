@@ -47,6 +47,7 @@ function Login()
                         handle: handle, 
                         password: password
                     })}>Log In</button>
+                    <button className='loginBtn' onClick={() => navigate("/signup")}>Sign Up</button>
                 </div>
             </div>
         </div>

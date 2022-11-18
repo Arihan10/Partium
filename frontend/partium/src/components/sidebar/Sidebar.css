@@ -21,7 +21,7 @@
     gap: 20px;
 
     transition: all 300ms ease-out;
-    background-color: #fafafa;
+    /*background-color: #fafafa;*/
     border-radius: 8px;
     width: 130px;
 
@@ -48,7 +48,7 @@
 
     transition: all 300ms ease-out;
 
-    background-color: #fafafa;
+    /*background-color: #fafafa;*/
     border-width: 20px;
     border-color: black;
     border-radius: 32px;
@@ -86,4 +86,38 @@ h1.appName
 
     width: 100%;
     font-weight: 600;
+}
+
+.logout-btn {
+    background-color: rgb(255, 90, 57);
+    bottom: 3%;
+    position: fixed;
+}
+
+.logout-btn-compact
+{
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    transition: all 300ms ease-out;
+
+    /*background-color: #fafafa;*/
+    border-width: 20px;
+    border-color: black;
+    border-radius: 32px;
+
+    box-shadow: var(--shadow-elevation-low);
+}
+
+.logout-btn:hover {
+    background-color: rgb(255, 42, 0);
+}
+
+p.logout-btn-text {
+    color: white;
 }
