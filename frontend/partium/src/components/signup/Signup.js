@@ -44,7 +44,7 @@ function SignUp()
                         handle: handle, 
                         name: name, 
                         password: password
-                    })}>Sign In</button>
+                    })}>Sign Up</button>
                 </div>
             </div>
         </div>

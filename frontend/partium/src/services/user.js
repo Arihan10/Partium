@@ -29,7 +29,7 @@ class UserDataService {
         return http.put("/friendReq/accept", data); 
     }
 
-    getUserEventsByHandle(handle) { //{handle: handle}
+    getUserEventsByHandle(handle) { 
         return http.get(`/events/${handle}`); 
     }
 

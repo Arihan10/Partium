@@ -1,5 +1,19 @@
-button.test-btn {
-    left: 50%; 
-    top: 20%;
-    position: absolute; 
+.feed
+{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    background-color: red;
+}
+
+.feed-event
+{
+    border-top: 1px;
+    border-bottom: 1px;
+}
+
+.poster-strip
+{
+    display: flex;
 }
