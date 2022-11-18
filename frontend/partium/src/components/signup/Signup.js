@@ -35,9 +35,7 @@ function SignUp()
     return (
         <div className="sign-up">
             <div className="sign-up-pane">
-                <div className="sign-up-title">
-                    <h1>Sign Up</h1>
-                </div>
+                <h1>Sign Up</h1>
                 <div className="sign-in-fields">
                     <input type="input-bar" placeholder="Handle" value={handle} onChange={onChangeHandle}/>
                     <input type="text" placeholder="Full Name" value={name} onChange={onChangeName}/>

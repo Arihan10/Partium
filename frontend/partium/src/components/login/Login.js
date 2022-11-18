@@ -1,9 +1,6 @@
 import { useState, useRef } from 'react'
 import UserDataService from "../../services/user"
-import EventView from '../eventview/EventView'
-import {CSSTransition} from 'react-transition-group'
 import './Login.css'
-import { Arrow90degRight, ArrowBarRight, Search } from 'react-bootstrap-icons'
 
 function Login()
 {
@@ -33,17 +30,17 @@ function Login()
     }
 
     return (
-        <div className='pane'>
-            <div className='loginTitle'>
+        <div className="log-in">
+            <div className="log-in-pane">
                 <h1>LOGIN</h1>
-            </div>
-            <div className="search-bar loginSearch">
-                <input type="text" placeholder="Handle" value={handle} onChange={onChangeHandle}/>
-                <input type="password" placeholder="Password" value={password} onChange={onChangePassword}/>
-                <button className='loginBtn' onClick={() => verifyUser({
-                    handle: handle, 
-                    password: password
-                })}><Arrow90degRight /></button>
+                <div className="log-in-fields">
+                    <input type="text" placeholder="Handle" value={handle} onChange={onChangeHandle}/>
+                    <input type="password" placeholder="Password" value={password} onChange={onChangePassword}/>
+                    <button className='loginBtn' onClick={() => verifyUser({
+                        handle: handle, 
+                        password: password
+                    })}>Log In</button>
+                </div>
             </div>
         </div>
     );
