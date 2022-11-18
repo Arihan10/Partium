@@ -6,7 +6,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 function SidebarItem({icon, name, href, compact, classNm = "sidebar-item", pClassNm, onClickFunc})
 {
-    //const nm = "sidebar-item" + (compact ? "-compact" : "");
     const nm = classNm + (compact ? "-compact" : "");
     return(
         <>
@@ -24,6 +23,7 @@ function Sidebar()
 
     useEffect(() => {
         loginRedir(); 
+        console.log(localStorage.getItem("userHandle") == "null");
     }, [])
 
     const loginRedir = () => {
@@ -48,7 +48,9 @@ function Sidebar()
                     <SidebarItem name={"Notifications"} href="notifs"/>
                     <SidebarItem name={"Account"} href="account"/>
                     <SidebarItem name={"Preferences"} href="preferences"/>
-                    {localStorage.getItem("userHandle") == "null" ? false : <SidebarItem name={"Logout"} href="/logout" classNm='sidebar-item logout-btn' pClassNm='logout-btn-text'/>}
+                    {localStorage.getItem("userHandle") != "null" &&
+                        <SidebarItem name={"Logout"} href="/logout" classNm='sidebar-item logout-btn'/>
+                    }
                 </>
             }
             {!desktop &&
@@ -58,7 +60,9 @@ function Sidebar()
                     <SidebarItem name={<BellFill/>} href="notifs" compact={true}/>
                     <SidebarItem name={<PersonFill/>} href="account" compact={true}/>
                     <SidebarItem name={<GearFill/>} href="preferences" compact={true}/>
-                    {localStorage.getItem("userHandle") ? <SidebarItem name={<BoxArrowLeft/>} href="/logout" classNm='sidebar-item logout-btn' pClassNm='logout-btn-text'/> : false}
+                    {localStorage.getItem("userHandle") != "null" &&
+                        <SidebarItem name={<BoxArrowLeft/>} href="/logout" classNm='sidebar-item-compact logout-btn' compact={true}/> 
+                    }
                 </>
             }
         </div>
