@@ -1,69 +1,96 @@
-.search-bar {
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px;
+.sign-up
+{
     display: flex;
+    overflow: hidden;
+
+    width: 100%;
     justify-content: center;
-    gap: 15px;
+    align-items: center;
+
+    background-image: url("../../../public/login_bg.jpg");
+    background-size: cover;
 }
 
-.search-bar input {
+.sign-up-pane
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: white;
+    width: clamp(300px, 50%, 500px);
+    height: clamp(400px, 50%, 500px);
+    border-radius: 20px;
+
+    box-shadow: var(--shadow-elevation-medium-dark);
+}
+
+.sign-in-fields
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    row-gap: 15px;
+    flex-direction: column;
+    width: 60%;
+}
+
+.sign-in-fields input
+{
     font: inherit;
     border-radius: 20px;
     border-style: solid;
     padding-left: 10px;
+
+    width: 100%;
+    height: 35px;
+
     box-shadow: var(--shadow-elevation-low);
     transition: transform 100ms cubic-bezier(0.2, 3, 0.4, 1), color 10ms ease-out;
 }
 
-.search-bar input:focus {
+.sign-in-fields input:focus {
     border-width: 1px;
     border-color: rgb(42, 81, 239);
     box-shadow: var(--shadow-elevation-high);
     transform: translate(0px, -2px);
 }
 
-.search-bar button{
-    font-size: 20px;
-    padding-top: 3px;
+.sign-in-fields button{
+    font: inherit;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1em;
 
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 45px;
 
-    border-radius: 50%;
+    border-radius: 50px;
     border: none;
 
     transition: transform 100ms cubic-bezier(0.2, 3, 0.4, 1), color 10ms ease-out;
 
-    box-shadow: var(--shadow-elevation-low);
+    background-color:#55f179;
     cursor: pointer;
 
-    color:black;
-    background-color:#eeeeee;
 }
 
-.search-bar button:hover {
+.sign-in-fields button:hover {
     box-shadow: var(--shadow-elevation-high-dark);
     transform: translate(0px, -2px);
-
     color: rgb(7, 40, 0);
-    background-color:#55f179;
+    border-style: none;
 }
 
-.signUpSearch {
-    top: 30%; 
-    position: absolute; 
-    flex-direction: column; 
-    width: 20%;
-    left: 40%;
-}
-
-button.signUpBtn {
-    width: 10vh;
-    height: 10vh;
-    align-self: center;
-}
-
-.signUpTitle {
+.sign-up-title h1
+{
+    font-size: 2.5em;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-weight: 900;
     text-align: center;
 }
