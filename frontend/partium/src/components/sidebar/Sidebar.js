@@ -27,9 +27,10 @@ function Sidebar()
     }, [])
 
     const loginRedir = () => {
-        //console.log(!(location.pathname=="/login") + " " + (localStorage.getItem("userHandle")=="null")); 
-        //console.log(localStorage.getItem("userHandle")=="null" && location.pathname=="/login"); 
-        if (localStorage.getItem("userHandle")=="null" && !(location.pathname=="/login")) {
+        console.log(!(location.pathname=="/login") + " " + (localStorage.getItem("userHandle")=="")); 
+        console.log(localStorage.getItem("userHandle")); 
+        console.log(localStorage.getItem("userHandle")=="" && location.pathname=="/login"); 
+        if (localStorage.getItem("userHandle")=="" && !(location.pathname=="/login")) {
             console.log("hmmm"); 
             navigate("/signup"); 
         }
@@ -48,7 +49,7 @@ function Sidebar()
                     <SidebarItem name={"Notifications"} href="notifs"/>
                     <SidebarItem name={"Account"} href="account"/>
                     <SidebarItem name={"Preferences"} href="preferences"/>
-                    {localStorage.getItem("userHandle") == "null" ? false : <SidebarItem name={"Logout"} href="/logout" classNm='sidebar-item logout-btn' pClassNm='logout-btn-text'/>}
+                    {localStorage.getItem("userHandle") == "" ? false : <SidebarItem name={"Logout"} href="/logout" classNm='sidebar-item logout-btn' pClassNm='logout-btn-text'/>}
                 </>
             }
             {!desktop &&
@@ -58,7 +59,7 @@ function Sidebar()
                     <SidebarItem name={<BellFill/>} href="notifs" compact={true}/>
                     <SidebarItem name={<PersonFill/>} href="account" compact={true}/>
                     <SidebarItem name={<GearFill/>} href="preferences" compact={true}/>
-                    {localStorage.getItem("userHandle") ? <SidebarItem name={<BoxArrowLeft/>} href="/logout" classNm='sidebar-item logout-btn' pClassNm='logout-btn-text'/> : false}
+                    {localStorage.getItem("userHandle") == "" ? false : <SidebarItem name={<BoxArrowLeft/>} href="/logout" classNm='sidebar-item logout-btn' pClassNm='logout-btn-text'/>}
                 </>
             }
         </div>
