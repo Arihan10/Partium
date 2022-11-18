@@ -1,9 +1,12 @@
 import { useState, useRef } from 'react'
 import UserDataService from "../../services/user"
 import './Login.css'
+import { useNavigate } from "react-router-dom";
 
 function Login()
 {
+    const navigate = useNavigate(); 
+
     const [handle, setHandle] = useState("");
     const [password, setPassword] = useState(""); 
 
@@ -21,8 +24,12 @@ function Login()
                 console.log(data); 
                 console.log(response.data); 
 
-                localStorage.setItem("userHandle", data.handle); 
-                console.log(localStorage.getItem("userHandle")); 
+                if (response.data == true) {
+                    localStorage.setItem("userHandle", data.handle); 
+                    console.log(localStorage.getItem("userHandle")); 
+
+                    navigate("/"); 
+                }
             })
             .catch(e => {
                 console.log(e);
