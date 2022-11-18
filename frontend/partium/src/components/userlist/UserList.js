@@ -79,7 +79,7 @@ function UserList() {
                     <p>@{handle}</p>
                 </div>
                 <button className="friend" onClick={() => addFriend({
-                    userHandle: "arihan10", 
+                    userHandle: userHandle, 
                     friendHandle: handle,
                 })}>+</button>
             </a>
